@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <div class="row " style="background-color:palegreen">
+        <div class="col-3 correction">
+            <label class="form-label">From station</label>
+            <select [(ngModel)]="fromstationID" name="fromstationID" id="" class="form-select">
+                <option value="0">From Station</option>
+                @for (item of stationlist; track $index) {
+                <option [value]="item.stationID">{{item.stationName}}</option>
+                }
+
+            </select>
+        </div>
+        <div class="col-3 correction">
+            <label class="form-label">To station</label>
+            <select [(ngModel)]="tostationID" name="tostationID" id="" class="form-select">
+                <option value="0">To station</option>
+                @for (item of stationlist; track $index) {
+                <option [value]="item.stationID">{{item.stationName}}</option>
+                }
+            </select>
+        </div>
+        <div class="col-2 dates">
+            <div>
+                <label class="form-label">Date</label>
+            </div>
+            <input type="date" [(ngModel)]="dateofTravel" name="dateofTravel" id="">
+
+        </div>
+        <div class="col-2 fabulous">
+            <button class="btn btn-primary submittingbutton" (click)="onsearch()">Modify Search</button>
+        </div>
+    </div>
+    <p><strong>{{Resultingtrains.length}}</strong> results found for your search</p>
+    <div class="row">
+        @for (item of Resultingtrains; track $index) {
+
+        <div class="card col-5">
+            <div class="card-header">{{item.trainName}} {{item.trainNo}}</div>
+            <div class="card-body">
+                <div class="row pb-2">
+                    <div class="col-5">
+                        {{item.arrivalTime}} | {{item.arrivalStationName}} | {{item.departureDate | date: 'dd-mm-yyyy'}}
+                    </div>
+                    <div class="col-2">
+
+                    </div>
+                    <div class="col-5 text-end">
+                        {{item.departureTime}} | {{item.departureStationName}}
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <button class="btn btn-success col-3">Book Now</button>
+                    <button type="button" class="btn btn-secondary col-3" style="margin-left: 5px;">Check Availability</button>
+                </div>
+            </div>
+        </div>
+
+        }
+    </div>
+</div>

@@ -1,0 +1,141 @@
+<div class="navbar navbar-expand-sm ">
+  <a class="navbar-brand" href="#">Indian-Railways</a>
+  <div>
+    <ul class="navbar-nav ">
+      <li class="nav-item ">
+        <a class="nav-link" href="Home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Trains</a>
+      </li>
+      @if (LoggedUser.passengerID==0) {
+        <li class="nav-item">
+          <a class="nav-link" (click)="openlogin()">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="openregister()">Register</a>
+        </li>
+      }
+      @else {
+        <li class="nav-item">
+          <a class="nav-link" >{{LoggedUser.phone}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="onlogoff()">LogOff</a>
+        </li>
+
+      }
+      
+    </ul>
+  </div>
+</div>
+
+
+<div class="modal" id="RegistrationModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Register</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeregister()"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-6">
+            <label>Firstname</label>
+            <input type="text" class="form-control" [(ngModel)]="Customer.firstName" />
+          </div>
+          <div class="col-6">
+            <label>Lastname</label>
+            <input type="text" class="form-control" [(ngModel)]="Customer.lastName" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Email</label>
+            <input type="text" class="form-control" [(ngModel)]="Customer.email" />
+          </div>
+          <div class="col-6">
+            <label>Phone</label>
+            <input type="text" class="form-control" [(ngModel)]="Customer.phone" />
+          </div>
+
+
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Password</label>
+            <input type="text" class="form-control" [(ngModel)]="Customer.password" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="closeregister()">Close</button>
+        <button type="button" class="btn btn-success" (click)="OnRegister()">Register</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal" id="LoginModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Login</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closelogin()"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <label>Phone</label>
+            <input type="text" class="form-control" [(ngModel)]="LOG.phone" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <label>Password</label>
+            <input type="password" class="form-control" [(ngModel)]="LOG.password" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="closelogin()">Close</button>
+        <button type="button" class="btn btn-success" (click)="onlogin()">Login</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<router-outlet></router-outlet>

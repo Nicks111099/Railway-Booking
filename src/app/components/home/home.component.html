@@ -1,0 +1,39 @@
+<div class="Heading">Book Ticket</div>
+<div class="row">
+    <form class="col-6 stationform">
+        <div class="row">
+            <div class="col-6">
+                <label class="form-label">From station</label>
+                <select [(ngModel)]="fromstationID" name="fromstationID" id="" class="form-select">
+                    <option value="0">From Station</option>
+                    @for (item of stationlist; track $index) {
+                    <option [value]="item.stationID">{{item.stationName}}</option>
+                    }
+
+                </select>
+            </div>
+            <div class="col-6">
+                <label class="form-label">To station</label>
+                <select [(ngModel)]="tostationID" name="tostationID" id="" class="form-select">
+                    <option value="0">To Station</option>
+                    @for (item of stationlist; track $index) {
+                    <option [value]="item.stationID">{{item.stationName}}</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-6 dates">
+            <div>
+                <label class="form-label">Date</label>
+            </div>
+            <input type="date" [(ngModel)]="dateofTravel" name="dateofTravel" id="">
+
+        </div>
+
+        <button class="btn btn-primary submittingbutton" (click)="onsearch()">Submit</button>
+    </form>
+    <div class=" col-5">
+        <img class="displayimage" src="https://thecsruniverse.com/adminxsafe/uploads/Railways%201.jpg"
+            alt="Railway image">
+    </div>
+</div>

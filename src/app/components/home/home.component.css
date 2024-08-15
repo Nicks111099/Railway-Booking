@@ -1,0 +1,32 @@
+.form-label{
+    font-weight: bold;
+    margin: auto;
+}
+
+.dates{
+    margin-top: 50px;
+}
+
+.stationform{
+    margin-left: 10px;
+
+
+}
+
+.Heading{
+    font-weight: bold;
+    font-size:xx-large;
+    text-align: center;
+
+}
+
+.displayimage{
+    height: 400px;
+    width: 500px;
+}
+
+.submittingbutton{
+
+    margin-top: 20px;
+    align-items: center;
+}
